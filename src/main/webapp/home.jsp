@@ -37,17 +37,22 @@
 
   <div class="movie-grid">
     <c:forEach var="movie" items="${nowShowingMovies}">
-      <div class="movie-card">
-        <div class="movie-poster-wrap">
-          <img src="${movie.posterUrl}" alt="${movie.title}" />
+      <div class="movie-card" onclick="window.location.href='${pageContext.request.contextPath}/movie-details?id=${movie.movieId}'">
+        <img class="movie-card-bg-img" src="${movie.posterUrl}" alt="${movie.title}" referrerpolicy="no-referrer" loading="lazy" />
+        <div class="movie-card-overlay"></div>
+        <div class="movie-card-top">
+          <span class="movie-lang-pill">${movie.language}</span>
+          <div class="movie-badge-float">
+            <i class="fa-solid fa-star"></i> 9.2
+          </div>
         </div>
         <div class="movie-card-info">
           <h3 class="movie-title">${movie.title}</h3>
           <div class="movie-genre">${movie.genre}</div>
           <div class="movie-card-footer">
-            <span class="movie-duration">${movie.durationMinutes}m • ${movie.language}</span>
-            <a href="${pageContext.request.contextPath}/movie-details?id=${movie.movieId}" class="btn-xs" style="background: rgba(255,94,58,0.15); color: var(--accent-primary); border-color: rgba(255,94,58,0.3);">
-              Book
+            <span class="movie-duration"><i class="fa-regular fa-clock"></i> ${movie.durationMinutes}m</span>
+            <a href="${pageContext.request.contextPath}/movie-details?id=${movie.movieId}" class="btn-xs btn-book-action">
+              <i class="fa-solid fa-ticket"></i> Book
             </a>
           </div>
         </div>
@@ -68,15 +73,23 @@
 
     <div class="movie-grid">
       <c:forEach var="movie" items="${upcomingMovies}">
-        <div class="movie-card">
-          <div class="movie-poster-wrap">
-            <img src="${movie.posterUrl}" alt="${movie.title}" />
+        <div class="movie-card" onclick="window.location.href='${pageContext.request.contextPath}/movie-details?id=${movie.movieId}'">
+          <img class="movie-card-bg-img" src="${movie.posterUrl}" alt="${movie.title}" referrerpolicy="no-referrer" loading="lazy" />
+          <div class="movie-card-overlay"></div>
+          <div class="movie-card-top">
+            <span class="movie-lang-pill">${movie.language}</span>
+            <div class="movie-badge-float">
+              <i class="fa-solid fa-calendar"></i> Soon
+            </div>
           </div>
           <div class="movie-card-info">
             <h3 class="movie-title">${movie.title}</h3>
             <div class="movie-genre">${movie.genre}</div>
             <div class="movie-card-footer">
               <span class="movie-duration">Release: ${movie.releaseDate}</span>
+              <a href="${pageContext.request.contextPath}/movie-details?id=${movie.movieId}" class="btn-xs btn-book-action">
+                <i class="fa-solid fa-info"></i> Details
+              </a>
             </div>
           </div>
         </div>
