@@ -16,6 +16,7 @@ import java.util.List;
 
 @WebServlet(name = "ApiShowServlet", urlPatterns = {"/api/shows/*"})
 public class ApiShowServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private final ShowDAO showDAO = new ShowDAO();
 
     @Override

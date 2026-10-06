@@ -15,7 +15,7 @@ public class BookingDAO {
             return null;
         }
 
-        String checkSeatSql = "SELECT 1 FROM booking_seats WHERE show_id = ? AND seat_row = ? AND seat_number = ?";
+        String checkSeatSql    = "SELECT 1 FROM booking_seats WHERE show_id = ? AND seat_row = ? AND seat_number = ? AND seat_type != 'CANCELLED'";
         String insertBookingSql = "INSERT INTO bookings (booking_reference, user_id, show_id, total_tickets, total_amount, booking_status) VALUES (?, ?, ?, ?, ?, 'CONFIRMED')";
         String insertSeatSql = "INSERT INTO booking_seats (booking_id, show_id, seat_row, seat_number, seat_type, price) VALUES (?, ?, ?, ?, ?, ?)";
         String insertPaymentSql = "INSERT INTO payments (booking_id, transaction_id, payment_method, amount, payment_status) VALUES (?, ?, ?, ?, 'SUCCESS')";
@@ -210,9 +210,9 @@ public class BookingDAO {
     }
 
     public boolean cancelBooking(int bookingId) {
-        String updateBookingSql = "UPDATE bookings SET booking_status = 'CANCELLED' WHERE booking_id = ?";
-        String deleteSeatsSql = "DELETE FROM booking_seats WHERE booking_id = ?";
-        String updatePaymentSql = "UPDATE payments SET payment_status = 'REFUNDED' WHERE booking_id = ?";
+        String updateBookingSql  = "UPDATE bookings      SET booking_status  = 'CANCELLED' WHERE booking_id = ?";
+        String updateSeatsSql    = "UPDATE booking_seats SET seat_type       = 'CANCELLED' WHERE booking_id = ?";
+        String updatePaymentSql  = "UPDATE payments      SET payment_status  = 'REFUNDED'  WHERE booking_id = ?";
 
         Connection conn = null;
         try {
@@ -224,7 +224,8 @@ public class BookingDAO {
                 ps1.executeUpdate();
             }
 
-            try (PreparedStatement ps2 = conn.prepareStatement(deleteSeatsSql)) {
+            // Mark seats as cancelled (preserves audit trail, frees seat for re-booking logic)
+            try (PreparedStatement ps2 = conn.prepareStatement(updateSeatsSql)) {
                 ps2.setInt(1, bookingId);
                 ps2.executeUpdate();
             }

@@ -17,6 +17,7 @@ import java.util.Map;
 
 @WebServlet(name = "ApiBookingServlet", urlPatterns = {"/api/bookings/*"})
 public class ApiBookingServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private final BookingService bookingService = new BookingService();
 
     @Override

@@ -105,7 +105,9 @@ public class ShowDAO {
 
     public List<String> getBookedSeats(int showId) {
         List<String> booked = new ArrayList<>();
-        String sql = "SELECT CONCAT(seat_row, seat_number) AS seat_code FROM booking_seats WHERE show_id = ?";
+        // Exclude CANCELLED seats so freed seats become bookable again
+        String sql = "SELECT CONCAT(seat_row, seat_number) AS seat_code " +
+                     "FROM booking_seats WHERE show_id = ? AND seat_type != 'CANCELLED'";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, showId);
