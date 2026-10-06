@@ -938,8 +938,11 @@ a {
   object-fit: cover;
   object-position: center 20%;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: contrast(1.04) saturate(1.08);
   /* Very subtle poster zoom effect on hover */
-  transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), filter 0.38s ease;
   z-index: 1;
 }
 
