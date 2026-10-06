@@ -131,7 +131,57 @@ const app = {
     this.renderMovies();
     this.setupDateRibbon();
     this.attachEventListeners();
+    this.initBubbleEngine();
     console.log("🎬 Filmee Full-Stack UI Integration Initialized.");
+  },
+
+  // ==================== BUBBLE ENGINE ====================
+  initBubbleEngine() {
+    // 1. Ambient Background Floating Bubbles
+    const container = document.getElementById("cinemaBubbleBackdrop");
+    if (container) {
+      container.innerHTML = "";
+      const bubbleCount = 24;
+      for (let i = 0; i < bubbleCount; i++) {
+        const b = document.createElement("div");
+        b.className = "ambient-bubble";
+        const size = Math.random() * 48 + 16; // 16px to 64px
+        b.style.width = `${size}px`;
+        b.style.height = `${size}px`;
+        b.style.left = `${Math.random() * 98}%`;
+        b.style.animationDuration = `${Math.random() * 12 + 10}s`; // 10s to 22s
+        b.style.animationDelay = `${Math.random() * 8}s`;
+        b.style.setProperty("--bubble-opacity", (Math.random() * 0.35 + 0.18).toFixed(2));
+        container.appendChild(b);
+      }
+    }
+
+    // 2. Interactive Click / Tap Bubble Burst on Everything
+    document.addEventListener("click", (e) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const count = 6;
+      for (let i = 0; i < count; i++) {
+        const bubble = document.createElement("span");
+        bubble.className = "click-bubble-burst";
+        const size = Math.random() * 12 + 8; // 8px to 20px
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.6;
+        const distance = Math.random() * 45 + 24;
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance - 22;
+
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${e.clientX - size / 2}px`;
+        bubble.style.top = `${e.clientY - size / 2}px`;
+        bubble.style.setProperty("--dx", `${dx}px`);
+        bubble.style.setProperty("--dy", `${dy}px`);
+        bubble.style.animationDuration = `${Math.random() * 0.25 + 0.45}s`;
+
+        document.body.appendChild(bubble);
+        setTimeout(() => bubble.remove(), 750);
+      }
+    }, { passive: true });
   },
 
   // ==================== THEME & LOCALIZATION ====================
