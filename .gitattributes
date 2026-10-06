@@ -1,0 +1,12 @@
+# Git line ending normalization
+* text=auto eol=lf
+
+*.java text diff=java eol=lf
+*.xml text eol=lf
+*.md text eol=lf
+*.sql text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.jsp text eol=lf
+*.html text eol=lf
