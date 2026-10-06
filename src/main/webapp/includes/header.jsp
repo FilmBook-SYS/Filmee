@@ -35,9 +35,6 @@
         <a href="${pageContext.request.contextPath}/home" class="nav-link">
           <i class="fa-solid fa-compass"></i> Discover
         </a>
-        <a href="${pageContext.request.contextPath}/movies" class="nav-link">
-          <i class="fa-solid fa-clapperboard"></i> Movies
-        </a>
         <a href="${pageContext.request.contextPath}/my-bookings" class="nav-link">
           <i class="fa-solid fa-ticket"></i> My Tickets
         </a>

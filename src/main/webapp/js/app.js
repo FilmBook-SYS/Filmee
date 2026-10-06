@@ -285,7 +285,7 @@ const app = {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    if (viewName === "home" || viewName === "movies") {
+    if (viewName === "home") {
       this.renderMovies();
     } else if (viewName === "my-bookings") {
       this.renderMyBookings();
