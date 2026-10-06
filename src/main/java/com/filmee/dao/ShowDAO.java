@@ -3,9 +3,31 @@ package com.filmee.dao;
 import com.filmee.model.Show;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ShowDAO {
+
+    public List<Show> getAllShows() {
+        List<Show> shows = new ArrayList<>();
+        String sql = "SELECT s.*, m.title AS movie_title, m.poster_url, t.name AS theater_name, sc.screen_number AS screen_name " +
+                     "FROM shows s " +
+                     "JOIN movies m ON s.movie_id = m.movie_id " +
+                     "JOIN screens sc ON s.screen_id = sc.screen_id " +
+                     "JOIN theaters t ON sc.theater_id = t.theater_id " +
+                     "ORDER BY s.show_date DESC, s.start_time ASC";
+        try (Connection conn = DBConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                shows.add(mapShow(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return shows;
+    }
 
     public List<Show> getShowsByMovieId(int movieId) {
         List<Show> shows = new ArrayList<>();
@@ -68,6 +90,26 @@ public class ShowDAO {
         return booked;
     }
 
+    public List<Map<String, Object>> getAllScreens() {
+        List<Map<String, Object>> screens = new ArrayList<>();
+        String sql = "SELECT sc.screen_id, sc.screen_number, t.name AS theater_name " +
+                     "FROM screens sc JOIN theaters t ON sc.theater_id = t.theater_id";
+        try (Connection conn = DBConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("screenId", rs.getInt("screen_id"));
+                map.put("screenNumber", rs.getString("screen_number"));
+                map.put("theaterName", rs.getString("theater_name"));
+                screens.add(map);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return screens;
+    }
+
     public boolean addShow(Show show) {
         String sql = "INSERT INTO shows (movie_id, screen_id, show_date, start_time, end_time, standard_price, premium_price, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
@@ -80,6 +122,18 @@ public class ShowDAO {
             ps.setDouble(6, show.getStandardPrice());
             ps.setDouble(7, show.getPremiumPrice());
             ps.setString(8, show.getStatus() != null ? show.getStatus() : "ACTIVE");
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean deleteShow(int showId) {
+        String sql = "DELETE FROM shows WHERE show_id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, showId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();

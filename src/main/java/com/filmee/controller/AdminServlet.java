@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
+import java.util.Map;
 
 public class AdminServlet extends HttpServlet {
     private MovieDAO movieDAO = new MovieDAO();
@@ -28,7 +29,13 @@ public class AdminServlet extends HttpServlet {
         }
 
         List<Movie> movies = movieDAO.getAllMovies();
+        List<Show> shows = showDAO.getAllShows();
+        List<Map<String, Object>> screens = showDAO.getAllScreens();
+
         request.setAttribute("movies", movies);
+        request.setAttribute("shows", shows);
+        request.setAttribute("screens", screens);
+
         request.getRequestDispatcher("/admin.jsp").forward(request, response);
     }
 
@@ -82,6 +89,10 @@ public class AdminServlet extends HttpServlet {
             show.setStatus("ACTIVE");
 
             showDAO.addShow(show);
+
+        } else if ("deleteShow".equalsIgnoreCase(action)) {
+            int showId = Integer.parseInt(request.getParameter("showId"));
+            showDAO.deleteShow(showId);
         }
 
         response.sendRedirect(request.getContextPath() + "/admin");
