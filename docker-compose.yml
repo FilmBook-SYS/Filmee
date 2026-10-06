@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # MySQL Database Container
+  db:
+    image: mysql:8.0
+    container_name: filmee-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: moviebook_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+    networks:
+      - filmee-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Java Servlet Backend (Tomcat 9)
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: filmee-backend
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: moviebook_db
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_URL: "jdbc:mysql://db:3306/moviebook_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+    ports:
+      - "8080:8080"
+    networks:
+      - filmee-network
+
+networks:
+  filmee-network:
+    driver: bridge
+
+volumes:
+  db_data:

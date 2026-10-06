@@ -1,0 +1,20 @@
+services:
+  # MySQL Database on Render
+  - type: web
+    name: filmee-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: 3306
+      - key: DB_NAME
+        value: moviebook_db
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
