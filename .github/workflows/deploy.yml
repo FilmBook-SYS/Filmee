@@ -5,19 +5,15 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
-# Permissions required for GitHub Pages & Deployment environments
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # 1. Build and package static web assets
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -31,28 +27,10 @@ jobs:
           cp -r js dist/
           [ -f Filmee.url ] && cp Filmee.url dist/ || true
 
-      - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-
-      - name: Deploy to gh-pages branch
+      - name: Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
           force_orphan: true
-
-  # 2. Official GitHub Pages Deployment (registers Environment & Deployments on GitHub UI)
-  deploy:
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        continue-on-error: true
