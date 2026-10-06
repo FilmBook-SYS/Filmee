@@ -14,7 +14,7 @@ const Storage = {
 
   // Initialize LocalStorage with default seeds if empty or updated
   init() {
-    const DATA_VERSION = "v9_ultra_hd_tmdb_posters";
+    const DATA_VERSION = "v11_all_41_verified_tmdb_posters_and_backdrops";
     const currentVersion = localStorage.getItem("filmee_data_version");
 
     if (!localStorage.getItem(this.KEYS.MOVIES) || currentVersion !== DATA_VERSION) {

@@ -84,7 +84,7 @@ const INITIAL_DATA = {
       releaseDate: "2020-10-16",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/xPpXYnCWcuumYq70nvNx0s0j50c.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/qjGrUmKW78MCFG8PTLDBp67S27p.jpg",
       description: "Tanjiro, Nezuko, Zenitsu, and Inosuke join Flame Hashira Kyojuro Rengoku aboard the mysterious Mugen Train to face Enmu and Upper Rank Three demon Akaza in an earth-shattering battle.",
       director: "Haruo Sotozaki (ufotable)",
       cast: "Natsuki Hanae, Satoshi Hino, Akari Kito, Hiro Shimono, Yoshitsugu Matsuoka, Akira Ishida"
@@ -116,7 +116,7 @@ const INITIAL_DATA = {
       releaseDate: "2022-11-11",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/yStW1TXF5s7Tbtu9KjIZEaWl6HL.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/bQXAqRx2Fgc46uCVWgo3655awv3.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/4tdV5AeojEdbvn6VpeQrbuDlmzs.jpg",
       description: "A 17-year-old girl named Suzume helps a mysterious young Closer named Souta close supernatural doors across Japan that are unleashing colossal disasters upon the world.",
       director: "Makoto Shinkai (CoMix Wave Films)",
       cast: "Nanoka Hara, Hokuto Matsumura, Eri Fukatsu, Shota Sometani, Sairi Ito"
@@ -148,7 +148,7 @@ const INITIAL_DATA = {
       releaseDate: "2023-07-14",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/f4oZTcfGrVTXKTWg157AwikXqmP.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/9PqD3wSIjntyJDBzMNuxuKHwpUD.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/75nSb1fbWooipwcSU5bUttiOriI.jpg",
       description: "Oscar-winning masterpiece by Hayao Miyazaki. Following the loss of his mother during the Pacific War, young Mahito ventures into a magical tower shared by the living and the dead, guided by a talking grey heron.",
       director: "Hayao Miyazaki (Studio Ghibli)",
       cast: "Soma Santoki, Masaki Suda, Aimyon, Yoshino Kimura, Takuya Kimura, Ko Shibasaki"
@@ -164,7 +164,7 @@ const INITIAL_DATA = {
       releaseDate: "2001-07-20",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/jUo8cNmU400WtZiJss45HNXlQ2e.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/Ab8mkHmkYADjU7wQiOkia99GQI.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
       description: "Ten-year-old Chihiro enters a magical spirit realm ruled by the witch Yubaba. To rescue her parents and return home, she must work at Yubaba's bathhouse with the help of the river spirit Haku.",
       director: "Hayao Miyazaki (Studio Ghibli)",
       cast: "Rumi Hiiragi, Miyu Irino, Mari Natsuki, Takeshi Naito, Yasuko Sawaguchi"
@@ -180,7 +180,7 @@ const INITIAL_DATA = {
       releaseDate: "2019-07-19",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/qgrk7r1fV4IjuoeiGS5HOhXNdLJ.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/AeDS2MKGFy6QcjgWbJBde0Ga6Hd.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/ize3ZieqSy0TCWljmVoEiy8fSFS.jpg",
       description: "A runaway high school boy befriended in Tokyo meets an orphan girl who possesses the extraordinary ability to stop the relentless rain and clear the sky through prayer.",
       director: "Makoto Shinkai",
       cast: "Kotaro Daigo, Nana Mori, Shun Oguri, Tsubasa Honda, Chieko Baisho"
@@ -196,7 +196,7 @@ const INITIAL_DATA = {
       releaseDate: "2022-08-06",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/8ibfhe4P7rhmn3lrPhOZzIJHA2B.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/mQOUyqDybTqxl73hO5LujCZsM1o.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/wghKvEjM7UzQzQcKnGbDjOyQO13.jpg",
       description: "Uta, the world's most beloved pop singer and daughter of Red-Haired Shanks, reveals her otherworldly singing voice at an island concert attended by the Straw Hat Pirates, Marines, and world rulers.",
       director: "Goro Taniguchi (Toei Animation)",
       cast: "Mayumi Tanaka, Kaori Nazuka, Ado, Shuichi Ikeda, Kazuya Nakai, Akemi Okamura"
@@ -228,7 +228,7 @@ const INITIAL_DATA = {
       releaseDate: "2022-12-03",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/yq4tSiYvfGw150Ntq8NbsFZ12En.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/yq4tSiYvfGw150Ntq8NbsFZ12En.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/rBgzI1a126JWA7YJd7p1NBmC61z.jpg",
       description: "Point guard Ryota Miyagi and the Shohoku High basketball team clash with reigning champions Sannoh Kogyo in the climactic Inter-High National Tournament.",
       director: "Takehiko Inoue (Toei Animation)",
       cast: "Shugo Nakamura, Jun Kasama, Shinichiro Kamio, Subaru Kimura, Kenta Miyake"
@@ -244,7 +244,7 @@ const INITIAL_DATA = {
       releaseDate: "2022-06-11",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/pi0iZOEHeA3ih4p1IwAG4x2DZNH.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/ugS5FVfCI3RV0xZjBVior8Umft1.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/uR0FopHrAjDlG5q6PZB07a1JOva.jpg",
       description: "The Red Ribbon Army returns with two ultimate androids, Gamma 1 and Gamma 2. Piccolo and Gohan awaken their deepest power forms (Orange Piccolo & Beast Gohan) to protect Earth.",
       director: "Tetsuro Kodama (Toei Animation)",
       cast: "Masako Nozawa, Toshio Furukawa, Yuko Minaguchi, Hiroshi Kamiya, Mamoru Miyano"
@@ -260,7 +260,7 @@ const INITIAL_DATA = {
       releaseDate: "1997-07-12",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/cMYCDADoLKLbB83g4WnJegaZimC.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/cMYCDADoLKLbB83g4WnJegaZimC.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/gl0jzn4BupSbL2qMVeqrjKkF9Js.jpg",
       description: "Prince Ashitaka journeying through medieval Japan finds himself caught in an epic war between the forest gods and Lady Eboshi's industrial Iron Town.",
       director: "Hayao Miyazaki (Studio Ghibli)",
       cast: "Yoji Matsuda, Yuriko Ishida, Yuko Tanaka, Kaoru Kobayashi, Masahiko Nishimura"
@@ -278,7 +278,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-08-15",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/nfnhwfUEFuSOxxf4jDdBlY6Lccw.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/3IfVRvuvYXWoVfDzNjSMvh6MNMJ.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/fVV0A67kDjTTQ4CvUn8LoletRmI.jpg",
       description: "The town of Chanderi is haunted once again, this time by a terrifying headless entity named Sarkata who is abducting progressive women. Vicky, Bittu, Janna, and Rudra team up with their mysterious protector to save the town.",
       director: "Amar Kaushik",
       cast: "Rajkummar Rao, Shraddha Kapoor, Pankaj Tripathi, Abhishek Banerjee, Aparshakti Khurana"
@@ -294,7 +294,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-06-27",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/sQJMFUjFfVdImpvlBJKqVHmNAEl.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/o8XSR1SONnjcsv84NRu6Mwsl5io.jpg",
       description: "Set in a post-apocalyptic world in the year 2898 AD, Ashwatthama awaits the arrival of the tenth avatar of Lord Vishnu to protect the unborn savior from Supreme Yaskin's Complex.",
       director: "Nag Ashwin",
       cast: "Prabhas, Amitabh Bachchan, Kamal Haasan, Deepika Padukone, Disha Patani"
@@ -310,7 +310,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-11-01",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/3AfHD1HoaQpQwKH8kxRdBKVmzeU.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/cFXMVXFpQlUJsxjNMhFJCPqLLi7.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/1TdCtQaAqZhKRSOSbPi1EPToJxN.jpg",
       description: "Rooh Baba returns to face the dual wrath of Manjulika in the historic palace of Raktaghat, unlocking ancestral secrets with laughter and supernatural chills.",
       director: "Anees Bazmee",
       cast: "Kartik Aaryan, Vidya Balan, Madhuri Dixit, Triptii Dimri, Rajpal Yadav"
@@ -326,7 +326,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-11-01",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/2JbNkHg8m7LaBy61LyrnnlenaxY.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/rih4MtqGe5RDpaSiXhYoqLvAqFb.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/lexEx0B4WDOXGfqPTj4R8FCrE7H.jpg",
       description: "DCP Bajirao Singham leads the high-octane Cop Universe squad across borders to rescue his wife Avni from international terror mastermind Danger Lanka.",
       director: "Rohit Shetty",
       cast: "Ajay Devgn, Kareena Kapoor Khan, Ranveer Singh, Akshay Kumar, Deepika Padukone, Tiger Shroff, Arjun Kapoor"
@@ -342,7 +342,7 @@ const INITIAL_DATA = {
       releaseDate: "2023-09-07",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/jFt1gS4BGHlK8xt76Y81Alp4dbt.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0xO.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/5LtSjMNw6j3LkG29Oa4O0iY5U8.jpg",
       description: "A high-octane action thriller outlining the emotional journey of a prison warden and former commando who sets out to rectify the wrongs in society while confronting a dangerous arms dealer.",
       director: "Atlee",
       cast: "Shah Rukh Khan, Nayanthara, Vijay Sethupathi, Deepika Padukone, Priyamani, Sanya Malhotra"
@@ -357,8 +357,8 @@ const INITIAL_DATA = {
       ageRating: "UA 13+",
       releaseDate: "2024-01-25",
       status: "NOW_SHOWING",
-      posterUrl: "https://image.tmdb.org/t/p/w780/utKzCSCz2HtXwcDGfWLj2IHhSob.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/lmpgFbJABRWUWAIfpYVXiXvJBrs.jpg",
+      posterUrl: "https://image.tmdb.org/t/p/w780/zqFuriKJ6pYDvf72kXNLONnuE8k.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/vcc6NDwsMwNrwHgVuI9lGdWJLB8.jpg",
       description: "Top IAF aviators assemble in the elite 'Air Dragons' unit to defend Indian airspace against terror threats with supersonic dogfights and unwavering courage.",
       director: "Siddharth Anand",
       cast: "Hrithik Roshan, Deepika Padukone, Anil Kapoor, Karan Singh Grover, Akshay Oberoi"
@@ -376,7 +376,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-07-26",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/yDHYTjA3R0jFYba16jBB1jv8vpH.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/by8z9Fe8y7p4jo2YlW2SZDnptyT.jpg",
       description: "A listless Wade Wilson toils in civilian life until the Time Variance Authority pulls him into a mission that will change the history of the Marvel Cinematic Universe with Wolverine.",
       director: "Shawn Levy",
       cast: "Ryan Reynolds, Hugh Jackman, Emma Corrin, Matthew Macfadyen, Dafne Keen"
@@ -392,7 +392,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-11-15",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/euYIwmwkmz95mnExHgufVtu525m.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/tOqIwliWMovSIZ9DyvHcHI7p2im.jpg",
       description: "Years after witnessing the death of Maximus at the hands of his uncle, Lucius must enter the Colosseum after the tyrannical emperors conquer his home in Numidia.",
       director: "Ridley Scott",
       cast: "Paul Mescal, Pedro Pascal, Denzel Washington, Connie Nielsen, Joseph Quinn"
@@ -408,7 +408,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-03-01",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/6izwz7rsy95ARzTR3poZ8H6c5pp.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0xO.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/eZ239CUp1d6OryZEBPnO2n87gMG.jpg",
       description: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family on Arrakis, seizing destiny across the cosmos.",
       director: "Denis Villeneuve",
       cast: "Timothée Chalamet, Zendaya, Rebecca Ferguson, Javier Bardem, Austin Butler, Florence Pugh"
@@ -424,7 +424,7 @@ const INITIAL_DATA = {
       releaseDate: "2023-07-21",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/rLb2cwF3Pazuxaj0sRXQ037tGI1.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/neeNHeXjMF5fXoCJRsOmkNGC7q.jpg",
       description: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during the Manhattan Project at Los Alamos.",
       director: "Christopher Nolan",
       cast: "Cillian Murphy, Emily Blunt, Matt Damon, Robert Downey Jr., Florence Pugh"
@@ -440,7 +440,7 @@ const INITIAL_DATA = {
       releaseDate: "2014-11-07",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/rAiYTsqJJR0KP8UN8vCnZ9v9i7l.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/8sNiAPPYU14PUepFNeSNGUTiHW.jpg",
       description: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
       director: "Christopher Nolan",
       cast: "Matthew McConaughey, Anne Hathaway, Jessica Chastain, Michael Caine, Matt Damon"
@@ -456,7 +456,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-12-25",
       status: "UPCOMING",
       posterUrl: "https://image.tmdb.org/t/p/w780/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/kVd3a9YeLGkoeR50jGEXM6EqseS.jpg",
       description: "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence and must redefine what it means to be a hero.",
       director: "Joaquim Dos Santos, Kemp Powers, Justin K. Thompson",
       cast: "Shameik Moore, Hailee Steinfeld, Oscar Isaac, Daniel Kaluuya, Karan Soni"
@@ -472,7 +472,7 @@ const INITIAL_DATA = {
       releaseDate: "2025-12-19",
       status: "UPCOMING",
       posterUrl: "https://image.tmdb.org/t/p/w780/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/kJsPVzdyBrYHLomuNv5SJDXUQ2f.jpg",
       description: "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns, Jake must work with Neytiri and the army of the Na'vi race to protect their home.",
       director: "James Cameron",
       cast: "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang, Kate Winslet"
@@ -490,7 +490,7 @@ const INITIAL_DATA = {
       releaseDate: "2016-04-29",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/d8K4ZI1RSxMkIIwu5cuvZmzwohq.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/d8K4ZI1RSxMkIIwu5cuvZmzwohq.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/vBId5iBnayC6yyqKFeX9shSaoCQ.jpg",
       description: "Archie, a fierce upper-class girl, and Parshya, a gifted lower-class fisherman's son, fall passionately in love defying deep-rooted societal divides in rural Maharashtra.",
       director: "Nagraj Manjule",
       cast: "Rinku Rajguru, Akash Thosar, Tanaji Galgunde, Arbaz Shaikh, Anuja Mule"
@@ -538,7 +538,7 @@ const INITIAL_DATA = {
       releaseDate: "2022-02-18",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/ArI2G4lRFQz5eqo8cXUZ7PDVgdY.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/ArI2G4lRFQz5eqo8cXUZ7PDVgdY.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/xLnY4h2GMgtKtV5DJV5pGjTZdmL.jpg",
       description: "The legendary last stand of Baji Prabhu Deshpande and 300 brave Bandal warriors holding off a massive Adilshahi army at Ghodkhind pass to ensure Chhatrapati Shivaji Maharaj safely reaches Vishalgad.",
       director: "Digpal Lanjekar",
       cast: "Chinmay Mandlekar, Ajay Purkar, Sameer Dharmadhikari, Ankit Mohan, Prajakta Mali"
@@ -554,7 +554,7 @@ const INITIAL_DATA = {
       releaseDate: "2023-08-25",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/vnM26ChrGes8dlT106LK9g3kaQu.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/vnM26ChrGes8dlT106LK9g3kaQu.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/3XOOvMWkqPeknaCzYLvcR7wXTxK.jpg",
       description: "The heroic saga of Subhedar Tanaji Malusare, who pledged his life and conquered the impregnable Kondhana fort (Sinhagad) for Swarajya.",
       director: "Digpal Lanjekar",
       cast: "Ajay Purkar, Chinmay Mandlekar, Mrinal Kulkarni, Smita Shewale, Shivani Rangole"
@@ -586,7 +586,7 @@ const INITIAL_DATA = {
       releaseDate: "2015-11-12",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/8FwgAZTVVtqMbW4y2dBuoJjdNXt.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/8FwgAZTVVtqMbW4y2dBuoJjdNXt.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/tBH3CVthbZUESP3sdLvYrPL3i7b.jpg",
       description: "An epic musical rivalry between royal court singers Pandit Bhanu Shankar Shastri and Khangsaheb Aftab Hussain Bareliwale spanning decades of unmatched classical ragas.",
       director: "Subodh Bhave",
       cast: "Sachin Pilgaonkar, Subodh Bhave, Shankar Mahadevan, Amruta Khanvilkar, Sakshi Tanwar"
@@ -602,7 +602,7 @@ const INITIAL_DATA = {
       releaseDate: "2016-01-01",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/x4KvM8NBi8m44aqwEMgsJPzA5Ne.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/x4KvM8NBi8m44aqwEMgsJPzA5Ne.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/mUbq0l1nGHbyFyNncxvLJMKXMUw.jpg",
       description: "Celebrated Shakespearean theater actor Ganpat Ramchandra Belwalkar faces devastating abandonment and betrayal from his own children after retiring from the stage.",
       director: "Mahesh Manjrekar",
       cast: "Nana Patekar, Medha Manjrekar, Vikram Gokhale, Sunil Barve, Mrunmayee Deshpande"
@@ -620,7 +620,7 @@ const INITIAL_DATA = {
       releaseDate: "2023-03-03",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/uux6M8z3hxLDkq8LXSzq8528mrq.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/uux6M8z3hxLDkq8LXSzq8528mrq.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/zaAo7ytwAIaQZxIPBC4kfRSPlM0.jpg",
       description: "Doraemon, Nobita, and their friends embark on a majestic zeppelin airship voyage to discover Paradapia, a utopian flying island where everyone is supposedly perfect, uncovering a cosmic mystery.",
       director: "Takumi Doyama",
       cast: "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Tomokazu Seki, Ren Nagase"
@@ -636,7 +636,7 @@ const INITIAL_DATA = {
       releaseDate: "2020-11-20",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/vBv8iOFPLnXmtELUjcFc7OKHsR4.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/vBv8iOFPLnXmtELUjcFc7OKHsR4.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/fStC0dSCRQslE9NzXa36EyOom81.jpg",
       description: "Nobita travels back in time to show his beloved grandmother his future bride Shizuka. But on the wedding day in the future, adult Nobita goes missing!",
       director: "Ryuichi Yagi, Takashi Yamazaki",
       cast: "Wasabi Mizuta, Megumi Ohara, Satoshi Tsumabuki, Nobuko Miyamoto"
@@ -652,7 +652,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-03-01",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/1W5Kg4K27U3dx9Kxb8DaE6WFLHI.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/1W5Kg4K27U3dx9Kxb8DaE6WFLHI.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/Z3mSxuPRNiFYxf1LBoGz3YrJzC.jpg",
       description: "When an alien creature threatens to erase music from the universe, Doraemon and Nobita use musical instruments powered by magical gadgets to save Earth's harmony.",
       director: "Kazuaki Imai",
       cast: "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Tomokazu Seki"
@@ -668,7 +668,7 @@ const INITIAL_DATA = {
       releaseDate: "2023-08-04",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/a56Fm2YWrlnqlC3TIgDvCJdzlKI.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/a56Fm2YWrlnqlC3TIgDvCJdzlKI.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/gjEiHrj8dSsgL25XbIxT9o5qO3u.jpg",
       description: "Shinchan is hit by a mysterious glowing beam from outer space giving him superhuman telekinetic powers, just as a dark villain receives sinister psychic abilities.",
       director: "Hitoshi One",
       cast: "Yumiko Kobayashi, Miki Narahashi, Toshiyuki Morikawa, Satomi Korogi"
@@ -684,7 +684,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-06-14",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/xg27NrXi7VXCGUr7MG75UqLl6Vg.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/p5ozvmdgsmbWe0H8Xk7Rc8SCwAB.jpg",
       description: "Joy, Sadness, Anger, Fear, and Disgust have headquarters running smoothly, until Anxiety, Envy, Ennui, and Embarrassment suddenly arrive as Riley enters teenage years.",
       director: "Kelsey Mann",
       cast: "Amy Poehler, Maya Hawke, Phyllis Smith, Lewis Black, Tony Hale, Liza Lapira"
@@ -700,7 +700,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-03-08",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/3ffPx9jqg0yj9y1KWeagT7D20CB.jpg",
       description: "Po must train a new Dragon Warrior while facing the formidable sorceress Chameleon, who can shapeshift into every master villain Po has ever defeated.",
       director: "Mike Mitchell",
       cast: "Jack Black, Awkwafina, Viola Davis, Dustin Hoffman, Bryan Cranston, James Hong"
@@ -716,7 +716,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-07-03",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/wWba3TaojhK7NdycRhoQpsG0FaH.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/lgkGysTk13nahPkYiXR9tAed9W1.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/twsxsfao6ZOVvT8LfudH603MMi6.jpg",
       description: "Gru and Lucy welcome Gru Jr. to the family, but must go on the run when vengeful supervillain Maxime Le Mal escapes prison seeking revenge.",
       director: "Chris Renaud",
       cast: "Steve Carell, Kristen Wiig, Will Ferrell, Sofia Vergara, Pierre Coffin"
@@ -732,7 +732,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-05-31",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/wQvja2azMSrxYy30D9Skq76pdhz.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/wQvja2azMSrxYy30D9Skq76pdhz.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/vt6ZkHyrrfLlTdiomnoGlNcgcHy.jpg",
       description: "Bheem and his squad travel back 1,000 years to the ancient kingdom of Sonapur to defeat the immortal demon king Damyaan before he conquers Dholakpur.",
       director: "Rajiv Chilaka",
       cast: "Yagya Bhasin, Anupam Kher, Makarand Deshpande, Surabhi Tiwari"

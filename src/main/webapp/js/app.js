@@ -453,7 +453,7 @@ const app = {
            src="${featured.backdropUrl || featured.posterUrl}" 
            alt="${featured.title}" 
            referrerpolicy="no-referrer" 
-           onerror="app.handlePosterError(this, '${encodeURIComponent(featured.title)}', '${encodeURIComponent(featured.genre)}', '${featured.rating}')" />
+           onerror="if (this.src !== '${featured.posterUrl}') { this.src = '${featured.posterUrl}'; } else { app.handlePosterError(this, '${encodeURIComponent(featured.title)}', '${encodeURIComponent(featured.genre)}', '${featured.rating}'); }" />
       <div class="featured-overlay"></div>
       <div class="featured-content">
         <span class="tag-badge badge-gold"><i class="fa-solid fa-sparkles"></i> ${this.currentLanguage === 'hi' ? 'विशेष प्रीमियर • आधिकारिक' : 'Featured Premiere • Official'}</span>
