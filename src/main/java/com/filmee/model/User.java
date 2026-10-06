@@ -9,7 +9,7 @@ public class User implements Serializable {
     private int userId;
     private String fullName;
     private String email;
-    private transient String password;
+    private String password;
     private String phoneNumber;
     private String role; // "CUSTOMER" or "ADMIN"
     private Timestamp createdAt;

@@ -3,9 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
+         version="4.0"
+         metadata-complete="false">
 
-    <display-name>Filmee Backend Application</display-name>
+    <display-name>Filmee Backend API Services</display-name>
 
     <!-- CORS Filter -->
     <filter>
@@ -17,7 +18,53 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!-- Session Timeout: 60 minutes -->
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>ApiAuthServlet</servlet-name>
+        <servlet-class>com.filmee.controller.ApiAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApiAuthServlet</servlet-name>
+        <url-pattern>/api/auth/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ApiMovieServlet</servlet-name>
+        <servlet-class>com.filmee.controller.ApiMovieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApiMovieServlet</servlet-name>
+        <url-pattern>/api/movies/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ApiShowServlet</servlet-name>
+        <servlet-class>com.filmee.controller.ApiShowServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApiShowServlet</servlet-name>
+        <url-pattern>/api/shows/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ApiBookingServlet</servlet-name>
+        <servlet-class>com.filmee.controller.ApiBookingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApiBookingServlet</servlet-name>
+        <url-pattern>/api/bookings/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ApiAdminServlet</servlet-name>
+        <servlet-class>com.filmee.controller.ApiAdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApiAdminServlet</servlet-name>
+        <url-pattern>/api/admin/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Session Configuration -->
     <session-config>
         <session-timeout>60</session-timeout>
         <cookie-config>
@@ -25,10 +72,5 @@
             <secure>false</secure>
         </cookie-config>
     </session-config>
-
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
 
 </web-app>

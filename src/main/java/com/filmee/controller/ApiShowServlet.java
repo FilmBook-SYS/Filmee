@@ -26,11 +26,11 @@ public class ApiShowServlet extends HttpServlet {
             String movieIdStr = request.getParameter("movieId");
             String dateStr = request.getParameter("date");
 
-            if (movieIdStr != null) {
-                int movieId = Integer.parseInt(movieIdStr);
+            if (movieIdStr != null && !movieIdStr.trim().isEmpty()) {
+                int movieId = Integer.parseInt(movieIdStr.trim());
                 List<Show> list;
-                if (dateStr != null && !dateStr.isEmpty()) {
-                    list = showDAO.getShowsByMovieAndDate(movieId, Date.valueOf(dateStr));
+                if (dateStr != null && !dateStr.trim().isEmpty()) {
+                    list = showDAO.getShowsByMovieAndDate(movieId, Date.valueOf(dateStr.trim()));
                 } else {
                     list = showDAO.getShowsByMovieId(movieId);
                 }
@@ -39,24 +39,31 @@ public class ApiShowServlet extends HttpServlet {
                 JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_OK, ApiResponse.ok(showDAO.getAllShows()));
             }
 
-        } else if (pathInfo.startsWith("/seats/")) {
+        } else if (pathInfo.contains("seats")) {
+            // Handles /seats/101 or /101/seats
             try {
-                int showId = Integer.parseInt(pathInfo.substring(7));
+                String cleanId = pathInfo.replaceAll("[^0-9]", "");
+                if (cleanId.isEmpty()) {
+                    String paramId = request.getParameter("showId");
+                    cleanId = paramId != null ? paramId.trim() : "";
+                }
+                int showId = Integer.parseInt(cleanId);
                 List<String> bookedSeats = showDAO.getBookedSeats(showId);
                 JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_OK, ApiResponse.ok(bookedSeats));
-            } catch (NumberFormatException e) {
-                JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Invalid show ID"));
+            } catch (Exception e) {
+                JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Invalid show ID for seat lookup"));
             }
         } else {
             try {
-                int showId = Integer.parseInt(pathInfo.substring(1));
+                String cleanId = pathInfo.replaceAll("[^0-9]", "");
+                int showId = Integer.parseInt(cleanId);
                 Show show = showDAO.getShowById(showId);
                 if (show != null) {
                     JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_OK, ApiResponse.ok(show));
                 } else {
                     JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_NOT_FOUND, ApiResponse.error("Show not found"));
                 }
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Invalid show ID"));
             }
         }
@@ -73,8 +80,12 @@ public class ApiShowServlet extends HttpServlet {
         }
 
         Show show = parseJsonShow(request);
-        boolean success = showDAO.addShow(show);
+        if (show == null || show.getMovieId() <= 0 || show.getScreenId() <= 0) {
+            JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Invalid show details in payload."));
+            return;
+        }
 
+        boolean success = showDAO.addShow(show);
         if (success) {
             JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_CREATED, ApiResponse.ok("Show scheduled successfully", show));
         } else {
@@ -93,16 +104,17 @@ public class ApiShowServlet extends HttpServlet {
         }
 
         String pathInfo = request.getPathInfo();
-        if (pathInfo != null && pathInfo.length() > 1) {
+        if (pathInfo != null) {
             try {
-                int id = Integer.parseInt(pathInfo.substring(1));
+                String cleanId = pathInfo.replaceAll("[^0-9]", "");
+                int id = Integer.parseInt(cleanId);
                 boolean deleted = showDAO.deleteShow(id);
                 if (deleted) {
                     JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_OK, ApiResponse.ok("Show cancelled successfully", null));
                 } else {
                     JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_NOT_FOUND, ApiResponse.error("Show not found"));
                 }
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Invalid show ID"));
             }
         }
@@ -116,6 +128,7 @@ public class ApiShowServlet extends HttpServlet {
                 sb.append(line);
             }
         }
+        if (sb.length() == 0) return null;
         return JsonUtil.fromJson(sb.toString(), Show.class);
     }
 }
