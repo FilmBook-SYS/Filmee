@@ -15,6 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "ApiMovieServlet", urlPatterns = {"/api/movies/*"})
 public class ApiMovieServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private final MovieService movieService = new MovieService();
 
     @Override
@@ -44,14 +45,19 @@ public class ApiMovieServlet extends HttpServlet {
 
         } else {
             try {
-                int id = Integer.parseInt(pathInfo.substring(1));
+                String cleanId = pathInfo.replaceAll("[^0-9]", "");
+                if (cleanId.isEmpty()) {
+                    JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Invalid movie ID"));
+                    return;
+                }
+                int id = Integer.parseInt(cleanId);
                 Movie movie = movieService.getMovieById(id);
                 if (movie != null) {
                     JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_OK, ApiResponse.ok(movie));
                 } else {
                     JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_NOT_FOUND, ApiResponse.error("Movie not found"));
                 }
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Invalid movie ID"));
             }
         }
@@ -68,6 +74,11 @@ public class ApiMovieServlet extends HttpServlet {
         }
 
         Movie movie = parseJsonMovie(request);
+        if (movie == null) {
+            JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Missing JSON movie payload."));
+            return;
+        }
+
         boolean success = movieService.createMovie(movie);
 
         if (success) {
@@ -90,14 +101,15 @@ public class ApiMovieServlet extends HttpServlet {
         String pathInfo = request.getPathInfo();
         if (pathInfo != null && pathInfo.length() > 1) {
             try {
-                int id = Integer.parseInt(pathInfo.substring(1));
+                String cleanId = pathInfo.replaceAll("[^0-9]", "");
+                int id = Integer.parseInt(cleanId);
                 boolean deleted = movieService.deleteMovie(id);
                 if (deleted) {
                     JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_OK, ApiResponse.ok("Movie deleted successfully", null));
                 } else {
                     JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_NOT_FOUND, ApiResponse.error("Movie not found or could not be deleted"));
                 }
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Invalid movie ID"));
             }
         } else {
@@ -113,6 +125,7 @@ public class ApiMovieServlet extends HttpServlet {
                 sb.append(line);
             }
         }
+        if (sb.length() == 0) return null;
         return JsonUtil.fromJson(sb.toString(), Movie.class);
     }
 }

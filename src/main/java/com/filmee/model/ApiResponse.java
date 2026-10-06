@@ -2,6 +2,7 @@ package com.filmee.model;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class ApiResponse<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 

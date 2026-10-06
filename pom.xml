@@ -9,17 +9,19 @@
     <artifactId>Filmee-Backend</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
-    <name>Filmee Backend Services & REST APIs</name>
-    <description>Enterprise Java Servlet & JDBC Backend for MovieBook/Filmee Online Ticket Reservation</description>
+    <name>Filmee Backend Services</name>
+    <description>Enterprise Java Servlet and JDBC Backend for MovieBook Online Ticket Reservation</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
-        <!-- Java Servlet API -->
+        <!-- Java Servlet API (provided by Tomcat container) -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -63,11 +65,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.12.1</version>
+                <configuration>
+                    <release>17</release>
+                    <showWarnings>true</showWarnings>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
             </plugin>
         </plugins>
     </build>

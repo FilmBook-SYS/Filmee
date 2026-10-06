@@ -14,6 +14,7 @@ import java.util.Map;
 
 @WebServlet(name = "ApiAuthServlet", urlPatterns = {"/api/auth/*"})
 public class ApiAuthServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private final AuthService authService = new AuthService();
 
     @Override
@@ -22,6 +23,10 @@ public class ApiAuthServlet extends HttpServlet {
 
         if ("/login".equalsIgnoreCase(pathInfo)) {
             Map<String, String> payload = parseJsonPayload(request);
+            if (payload == null) {
+                JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Missing JSON request body."));
+                return;
+            }
             String email = payload.get("email");
             String password = payload.get("password");
 
@@ -36,6 +41,10 @@ public class ApiAuthServlet extends HttpServlet {
 
         } else if ("/register".equalsIgnoreCase(pathInfo)) {
             Map<String, String> payload = parseJsonPayload(request);
+            if (payload == null) {
+                JsonUtil.sendJsonResponse(response, HttpServletResponse.SC_BAD_REQUEST, ApiResponse.error("Missing JSON request body."));
+                return;
+            }
             String fullName = payload.get("fullName");
             String email = payload.get("email");
             String password = payload.get("password");
@@ -88,6 +97,7 @@ public class ApiAuthServlet extends HttpServlet {
                 sb.append(line);
             }
         }
+        if (sb.length() == 0) return null;
         return JsonUtil.fromJson(sb.toString(), Map.class);
     }
 }

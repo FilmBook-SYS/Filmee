@@ -13,6 +13,7 @@ import java.util.Map;
 
 @WebServlet(name = "ApiAdminServlet", urlPatterns = {"/api/admin/*"})
 public class ApiAdminServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private final AdminService adminService = new AdminService();
 
     @Override

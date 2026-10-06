@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
+@SuppressWarnings("serial")
 public class Booking implements Serializable {
     private static final long serialVersionUID = 1L;
 

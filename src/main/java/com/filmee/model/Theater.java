@@ -3,6 +3,7 @@ package com.filmee.model;
 import java.io.Serializable;
 import java.util.List;
 
+@SuppressWarnings("serial")
 public class Theater implements Serializable {
     private static final long serialVersionUID = 1L;
 

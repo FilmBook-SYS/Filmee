@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
+@SuppressWarnings("serial")
 public class Show implements Serializable {
     private static final long serialVersionUID = 1L;
 
