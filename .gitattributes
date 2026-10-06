@@ -1,4 +1,4 @@
-# Auto detect text files and perform LF normalization
+# Git line ending normalization
 * text=auto eol=lf
 
 *.java text diff=java eol=lf
