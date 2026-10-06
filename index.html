@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Filmee | Premium Online Movie Ticket Booking</title>
+  <meta name="description" content="Experience seamless movie ticket reservations with live seat selection, instant ticket generation, and real-time showtime scheduling on Filmee." />
+  
+  <!-- Google Fonts: Cinzel, Bebas Neue, Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@700;800;900&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- App Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand" onclick="app.navigateTo('home')">
+        <div class="brand-icon">
+          <i class="fa-solid fa-film"></i>
+        </div>
+        <span class="brand-name">
+          <span class="brand-label">Cinema</span>
+          <span class="brand-wordmark">Filmee</span>
+        </span>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#home" class="nav-link active" onclick="app.navigateTo('home')" id="nav-home">
+          <i class="fa-solid fa-compass"></i> Discover
+        </a>
+        <a href="#bookings" class="nav-link" onclick="app.navigateTo('my-bookings')" id="nav-bookings">
+          <i class="fa-solid fa-ticket"></i> My Tickets
+        </a>
+        <a href="#admin" class="nav-link admin-nav-link" onclick="app.navigateTo('admin')" id="nav-admin">
+          <i class="fa-solid fa-shield-halved"></i> Admin Panel
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- City Selector -->
+        <div class="city-selector">
+          <i class="fa-solid fa-location-dot"></i>
+          <select id="citySelect" onchange="app.onCityChange(this.value)">
+            <option value="Thane">Thane</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Delhi NCR">Delhi NCR</option>
+          </select>
+        </div>
+
+        <!-- Search Button (Mobile/Desktop) -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="globalSearchInput" placeholder="Search movies, genre, actor..." oninput="app.handleSearch(this.value)" />
+        </div>
+
+        <!-- Language Selector (English / Hindi) -->
+        <button class="nav-control-btn lang-toggle-btn" id="langToggleBtn" onclick="app.toggleLanguage()" title="Switch Language / भाषा बदलें">
+          <i class="fa-solid fa-language text-gold"></i>
+          <span id="langBtnText">हिंदी</span>
+        </button>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button class="nav-control-btn theme-toggle-btn" id="themeToggleBtn" onclick="app.toggleTheme()" title="Switch Theme (Dark / Light)">
+          <i class="fa-solid fa-sun text-gold" id="themeIcon"></i>
+        </button>
+
+        <!-- Auth Button / User Profile -->
+        <div class="auth-wrapper" id="authWrapper">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- VIEW 1: HOME & DISCOVERY -->
+    <section id="view-home" class="app-view active">
+      <!-- Hero Banner Carousel -->
+      <div class="hero-carousel" id="heroCarousel">
+        <div class="carousel-slide" id="featuredSlide">
+          <!-- Featured Movie Hero Card -->
+        </div>
+        <div class="carousel-indicators" id="carouselIndicators"></div>
+      </div>
+
+      <!-- Quick Category Chips -->
+      <div class="genre-filter-bar" id="genreFilterBar">
+        <button class="chip active" onclick="app.filterByGenre('ALL')">All Movies</button>
+        <button class="chip" onclick="app.filterByGenre('Marathi')"><i class="fa-solid fa-masks-theater text-gold"></i> Marathi Movies</button>
+        <button class="chip" onclick="app.filterByGenre('Cartoon')"><i class="fa-solid fa-wand-magic-sparkles text-orange"></i> Cartoon & Doraemon</button>
+        <button class="chip" onclick="app.filterByGenre('Anime')"><i class="fa-solid fa-dragon text-gold"></i> Anime Movies</button>
+        <button class="chip" onclick="app.filterByGenre('Hindi')"><i class="fa-solid fa-film text-gold"></i> Hindi Movies</button>
+        <button class="chip" onclick="app.filterByGenre('English')"><i class="fa-solid fa-globe text-orange"></i> English Movies</button>
+        <button class="chip" onclick="app.filterByGenre('Action')">Action</button>
+        <button class="chip" onclick="app.filterByGenre('Sci-Fi')">Sci-Fi</button>
+        <button class="chip" onclick="app.filterByGenre('Fantasy')">Fantasy</button>
+        <button class="chip" onclick="app.filterByGenre('Horror')">Horror & Comedy</button>
+        <button class="chip" onclick="app.filterByGenre('Drama')">Drama</button>
+      </div>
+
+      <!-- Section: Now Showing -->
+      <div class="section-container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title"><i class="fa-solid fa-fire text-accent"></i> Now Showing in Cinemas</h2>
+            <p class="section-subtitle">Catch the biggest blockbusters on the giant screen today</p>
+          </div>
+          <div class="tab-pills">
+            <button class="pill-btn active" id="pill-now-showing" onclick="app.switchMovieTab('NOW_SHOWING')">Now Showing</button>
+            <button class="pill-btn" id="pill-upcoming" onclick="app.switchMovieTab('UPCOMING')">Coming Soon</button>
+          </div>
+        </div>
+
+        <div class="movie-grid" id="movieGrid">
+          <!-- Movie cards rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Section: Why Filmee / Features -->
+      <div class="features-banner">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-couch"></i></div>
+          <div class="feature-info">
+            <h4>Live Interactive Seating</h4>
+            <p>Select your favorite recliner or standard seats in real-time</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-qrcode"></i></div>
+          <div class="feature-info">
+            <h4>Instant Digital E-Tickets</h4>
+            <p>Get instant barcode & QR verification right after booking</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-credit-card"></i></div>
+          <div class="feature-info">
+            <h4>Zero Payment Friction</h4>
+            <p>Seamless simulated checkout supporting cards, UPI, and wallets</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: MOVIE DETAILS & SHOWTIME SELECTOR -->
+    <section id="view-movie-details" class="app-view">
+      <div class="details-backdrop" id="movieBackdrop"></div>
+      
+      <div class="details-content-container">
+        <button class="back-btn" onclick="app.navigateTo('home')">
+          <i class="fa-solid fa-arrow-left"></i> Back to Movies
+        </button>
+
+        <div class="movie-hero-info" id="movieHeroInfo">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Showtime & Date Selection Section -->
+        <div class="booking-scheduler-box">
+          <div class="scheduler-header">
+            <h3><i class="fa-solid fa-calendar-days text-accent"></i> 1. Select Date & Showtime</h3>
+            <span class="badge badge-info"><i class="fa-solid fa-circle-check"></i> Live Auditoriums</span>
+          </div>
+
+          <!-- Date Selector Ribbon -->
+          <div class="date-ribbon" id="dateRibbon">
+            <!-- Rendered dynamically: Today, Tomorrow, Day+2... -->
+          </div>
+
+          <!-- Theaters & Showtimes list -->
+          <div class="theaters-show-list" id="theatersShowList">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: INTERACTIVE SEAT SELECTION -->
+    <section id="view-seat-selection" class="app-view">
+      <div class="seat-view-container">
+        <!-- Breadcrumb Header -->
+        <div class="seat-header-bar">
+          <button class="back-btn" onclick="app.backToShowSelection()">
+            <i class="fa-solid fa-arrow-left"></i> Change Show
+          </button>
+          
+          <div class="seat-header-info" id="seatHeaderInfo">
+            <!-- Movie Title, Audi, Date & Time -->
+          </div>
+
+          <div class="seat-timer-badge" id="seatHoldTimer">
+            <i class="fa-solid fa-stopwatch"></i> Seat Hold: <span id="timerCountdown">05:00</span>
+          </div>
+        </div>
+
+        <!-- Cinema Screen Curve -->
+        <div class="screen-perspective">
+          <div class="cinema-screen">
+            <span class="screen-label">CINEMA SCREEN THIS WAY</span>
+          </div>
+          <div class="screen-glow"></div>
+        </div>
+
+        <!-- Seat Legend -->
+        <div class="seat-legend">
+          <div class="legend-item">
+            <span class="seat-sample seat-available"></span>
+            <span>Available (₹<span id="legendStdPrice">180</span>)</span>
+          </div>
+          <div class="legend-item">
+            <span class="seat-sample seat-premium-sample"></span>
+            <span>Premium Recliner (₹<span id="legendPremPrice">300</span>)</span>
+          </div>
+          <div class="legend-item">
+            <span class="seat-sample seat-selected"></span>
+            <span>Selected</span>
+          </div>
+          <div class="legend-item">
+            <span class="seat-sample seat-booked"></span>
+            <span>Booked / Unavailable</span>
+          </div>
+        </div>
+
+        <!-- Interactive Seat Grid Container -->
+        <div class="auditorium-grid" id="auditoriumGrid">
+          <!-- Rows A-H & Seats rendered via JS -->
+        </div>
+
+        <!-- Floating Bottom Checkout Bar -->
+        <div class="seat-bottom-bar" id="seatBottomBar">
+          <div class="seat-summary-left">
+            <div class="selected-seats-badge">
+              <span class="count" id="selectedSeatCount">0</span> Tickets Selected
+            </div>
+            <div class="seat-list-preview" id="selectedSeatList">No seats selected yet</div>
+          </div>
+          
+          <div class="seat-summary-right">
+            <div class="total-price-box">
+              <span class="total-label">Total Amount:</span>
+              <span class="total-value">₹<span id="selectedTotalPrice">0.00</span></span>
+            </div>
+            <button class="btn btn-primary btn-checkout" id="btnProceedToPay" onclick="app.openCheckoutModal()" disabled>
+              Proceed to Pay <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: MY BOOKINGS -->
+    <section id="view-my-bookings" class="app-view">
+      <div class="section-container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title"><i class="fa-solid fa-ticket text-accent"></i> My Movie Bookings</h2>
+            <p class="section-subtitle">Access your digital tickets, booking codes, and payment receipts</p>
+          </div>
+          <button class="btn btn-secondary" onclick="app.navigateTo('home')">
+            <i class="fa-solid fa-plus"></i> Book New Ticket
+          </button>
+        </div>
+
+        <div class="my-bookings-container" id="myBookingsContainer">
+          <!-- Booking cards loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: ADMIN DASHBOARD -->
+    <section id="view-admin" class="app-view">
+      <div class="admin-container">
+        <div class="admin-sidebar">
+          <div class="admin-profile-badge">
+            <i class="fa-solid fa-user-gear"></i>
+            <div>
+              <strong id="adminUsername">Administrator</strong>
+              <small class="text-accent">Filmee Control Center</small>
+            </div>
+          </div>
+
+          <nav class="admin-nav">
+            <button class="admin-nav-item active" onclick="app.switchAdminTab('overview')" id="adm-tab-overview">
+              <i class="fa-solid fa-chart-line"></i> Dashboard & Metrics
+            </button>
+            <button class="admin-nav-item" onclick="app.switchAdminTab('movies')" id="adm-tab-movies">
+              <i class="fa-solid fa-film"></i> Manage Movies
+            </button>
+            <button class="admin-nav-item" onclick="app.switchAdminTab('shows')" id="adm-tab-shows">
+              <i class="fa-solid fa-calendar-check"></i> Manage Shows
+            </button>
+            <button class="admin-nav-item" onclick="app.switchAdminTab('bookings')" id="adm-tab-bookings">
+              <i class="fa-solid fa-receipt"></i> Booking Logs
+            </button>
+          </nav>
+        </div>
+
+        <div class="admin-content-area" id="adminContentArea">
+          <!-- Admin tabs rendered here -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3 class="brand-name">Film<span>ee</span></h3>
+        <p>Your premier destination for movie ticket reservations, luxury recliner seating, and instant digital ticketing.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Cinemas & Cities</h4>
+        <ul class="footer-links">
+          <li><a href="#home" onclick="app.onCityChange('Mumbai')"><i class="fa-solid fa-angle-right text-orange"></i> Mumbai</a></li>
+          <li><a href="#home" onclick="app.onCityChange('Thane')"><i class="fa-solid fa-angle-right text-orange"></i> Thane</a></li>
+          <li><a href="#home" onclick="app.onCityChange('Pune')"><i class="fa-solid fa-angle-right text-orange"></i> Pune</a></li>
+          <li><a href="#home" onclick="app.onCityChange('Bengaluru')"><i class="fa-solid fa-angle-right text-orange"></i> Bengaluru</a></li>
+          <li><a href="#home" onclick="app.onCityChange('Delhi NCR')"><i class="fa-solid fa-angle-right text-orange"></i> Delhi NCR</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Categories</h4>
+        <ul class="footer-links">
+          <li><a href="#home" onclick="app.filterByGenre('Hindi')"><i class="fa-solid fa-angle-right text-gold"></i> Hindi Movies</a></li>
+          <li><a href="#home" onclick="app.filterByGenre('English')"><i class="fa-solid fa-angle-right text-gold"></i> English Movies</a></li>
+          <li><a href="#home" onclick="app.filterByGenre('Action')"><i class="fa-solid fa-angle-right text-gold"></i> Action Blockbusters</a></li>
+          <li><a href="#home" onclick="app.filterByGenre('Sci-Fi')"><i class="fa-solid fa-angle-right text-gold"></i> Sci-Fi & IMAX</a></li>
+          <li><a href="#home" onclick="app.filterByGenre('Horror')"><i class="fa-solid fa-angle-right text-gold"></i> Horror & Thriller</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Help & Support</h4>
+        <ul class="footer-links">
+          <li><a href="#bookings" onclick="app.navigateTo('my-bookings')"><i class="fa-solid fa-ticket text-orange"></i> My Tickets</a></li>
+          <li><a href="#admin" onclick="app.navigateTo('admin')"><i class="fa-solid fa-shield-halved text-gold"></i> Admin Dashboard</a></li>
+          <li><a href="mailto:support@filmee.com"><i class="fa-solid fa-envelope text-orange"></i> 24/7 Support</a></li>
+          <li><a href="#home"><i class="fa-solid fa-file-contract text-gold"></i> Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Filmee Inc. All rights reserved. Designed with Gold & Sunset Orange Cinema Theme.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS & POPUPS ==================== -->
+
+  <!-- AUTH MODAL (LOGIN / REGISTER) -->
+  <div class="modal-backdrop" id="authModal">
+    <div class="modal-box modal-auth">
+      <button class="modal-close" onclick="app.closeModal('authModal')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tab-login" onclick="app.switchAuthForm('login')">Sign In</button>
+        <button class="auth-tab-btn" id="tab-register" onclick="app.switchAuthForm('register')">Create Account</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <form id="formLogin" class="auth-form active" onsubmit="app.handleLoginSubmit(event)">
+        <h3>Welcome Back!</h3>
+        <p class="auth-help">Log in to book tickets and manage your reservations.</p>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+          <input type="email" id="loginEmail" required placeholder="e.g. soham@example.com" value="soham@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-lock"></i> Password</label>
+          <input type="password" id="loginPassword" required placeholder="••••••••" value="user123" />
+        </div>
+
+        <!-- Quick Demo Switcher -->
+        <div class="demo-logins">
+          <span>Quick Demo Fill:</span>
+          <button type="button" class="btn-xs" onclick="app.fillDemoCredentials('customer')">Customer</button>
+          <button type="button" class="btn-xs" onclick="app.fillDemoCredentials('admin')">Admin</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In to Filmee
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="formRegister" class="auth-form" onsubmit="app.handleRegisterSubmit(event)">
+        <h3>Create Your Account</h3>
+        <p class="auth-help">Join Filmee for instant seat booking and exclusive discounts.</p>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-user"></i> Full Name</label>
+          <input type="text" id="regName" required placeholder="e.g. Soham Sonawan" />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+          <input type="email" id="regEmail" required placeholder="e.g. name@domain.com" />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-phone"></i> Phone Number</label>
+          <input type="tel" id="regPhone" required placeholder="10-digit mobile number" />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-lock"></i> Password</label>
+          <input type="password" id="regPassword" required placeholder="Create a strong password" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-user-plus"></i> Complete Registration
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CHECKOUT & DUMMY PAYMENT MODAL -->
+  <div class="modal-backdrop" id="checkoutModal">
+    <div class="modal-box modal-checkout">
+      <button class="modal-close" onclick="app.closeModal('checkoutModal')"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="checkout-header">
+        <h3 class="modal-title"><i class="fa-solid fa-shield-check text-accent"></i> Complete Reservation</h3>
+        <p class="text-muted">Simulated Secure Payment Gateway</p>
+      </div>
+
+      <div class="checkout-grid">
+        <!-- Booking Breakdown Summary -->
+        <div class="checkout-order-summary">
+          <h4><i class="fa-solid fa-receipt"></i> Booking Summary</h4>
+          <div class="summary-line">
+            <span class="text-muted">Movie:</span>
+            <strong id="chkMovieTitle">-</strong>
+          </div>
+          <div class="summary-line">
+            <span class="text-muted">Auditorium & Date:</span>
+            <span id="chkAudiDate">-</span>
+          </div>
+          <div class="summary-line">
+            <span class="text-muted">Showtime:</span>
+            <span id="chkShowtime">-</span>
+          </div>
+          <div class="summary-line">
+            <span class="text-muted">Selected Seats:</span>
+            <strong class="text-accent" id="chkSeats">-</strong>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="summary-line">
+            <span>Ticket Subtotal:</span>
+            <span>₹<span id="chkSubtotal">0.00</span></span>
+          </div>
+          <div class="summary-line">
+            <span>Convenience Fee & GST (18%):</span>
+            <span>₹<span id="chkFee">0.00</span></span>
+          </div>
+          
+          <div class="summary-line total-highlight">
+            <strong>Grand Total:</strong>
+            <strong class="text-accent">₹<span id="chkGrandTotal">0.00</span></strong>
+          </div>
+        </div>
+
+        <!-- Payment Form -->
+        <div class="checkout-payment-form">
+          <h4>Select Payment Method</h4>
+          
+          <div class="payment-tabs">
+            <button class="pay-tab active" onclick="app.switchPaymentTab('card')" id="pay-tab-card">
+              <i class="fa-solid fa-credit-card"></i> Card
+            </button>
+            <button class="pay-tab" onclick="app.switchPaymentTab('upi')" id="pay-tab-upi">
+              <i class="fa-solid fa-mobile-screen-button"></i> UPI / QR
+            </button>
+            <button class="pay-tab" onclick="app.switchPaymentTab('instant')" id="pay-tab-instant">
+              <i class="fa-solid fa-bolt"></i> 1-Click Test Pay
+            </button>
+          </div>
+
+          <!-- Card Option -->
+          <div id="pay-form-card" class="payment-view active">
+            <div class="form-group">
+              <label>Card Number</label>
+              <input type="text" placeholder="4532 •••• •••• 8921" value="4532 8892 1092 8921" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Expiry Date</label>
+                <input type="text" placeholder="MM/YY" value="08/28" />
+              </div>
+              <div class="form-group">
+                <label>CVV</label>
+                <input type="password" placeholder="•••" value="892" />
+              </div>
+            </div>
+          </div>
+
+          <!-- UPI Option -->
+          <div id="pay-form-upi" class="payment-view">
+            <div class="upi-box">
+              <div class="upi-qr-placeholder">
+                <i class="fa-solid fa-qrcode fa-4x text-accent"></i>
+                <small>Scan with GPay, PhonePe, or Paytm</small>
+              </div>
+              <div class="form-group" style="width: 100%;">
+                <label>Or enter VPA ID</label>
+                <input type="text" placeholder="user@okhdfcbank" value="filmee.customer@okaxis" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 1-Click Instant Option -->
+          <div id="pay-form-instant" class="payment-view">
+            <div class="instant-test-box">
+              <i class="fa-solid fa-circle-check text-accent fa-2x"></i>
+              <p>Sandbox Test Mode: Instantly approve the transaction with simulated confirmation.</p>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-block btn-pay-now" onclick="app.processPayment()">
+            <i class="fa-solid fa-lock"></i> Pay & Confirm Reservation (₹<span id="btnPayAmount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIGITAL TICKET MODAL -->
+  <div class="modal-backdrop" id="ticketModal">
+    <div class="modal-box modal-ticket-wrapper">
+      <button class="modal-close" onclick="app.closeModal('ticketModal')"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="ticket-container" id="printableTicket">
+        <div class="ticket-header">
+          <div class="ticket-brand">
+            <i class="fa-solid fa-film text-accent"></i>
+            <span>Film<span>ee</span> Cinema Pass</span>
+          </div>
+          <span class="ticket-status-badge"><i class="fa-solid fa-circle-check"></i> CONFIRMED</span>
+        </div>
+
+        <div class="ticket-body">
+          <div class="ticket-movie-title" id="tktMovieTitle">Dune: Part Two</div>
+          <div class="ticket-meta" id="tktLanguageGenre">English • Sci-Fi / Adventure</div>
+
+          <div class="ticket-grid">
+            <div class="tkt-cell">
+              <span class="tkt-label">THEATER & AUDI</span>
+              <strong id="tktTheaterAudi">Grand Multiplex • Audi 1</strong>
+            </div>
+            <div class="tkt-cell">
+              <span class="tkt-label">DATE & TIME</span>
+              <strong id="tktDateTime">Today • 06:30 PM</strong>
+            </div>
+            <div class="tkt-cell">
+              <span class="tkt-label">SEAT NUMBERS</span>
+              <strong class="text-accent" id="tktSeats">C4, C5</strong>
+            </div>
+            <div class="tkt-cell">
+              <span class="tkt-label">BOOKING ID</span>
+              <strong id="tktReference">FLM-2026-X89AD</strong>
+            </div>
+          </div>
+
+          <div class="ticket-qr-section">
+            <div class="tkt-qr">
+              <i class="fa-solid fa-qrcode fa-5x"></i>
+            </div>
+            <div class="tkt-qr-info">
+              <p><strong>Scan at cinema turnstile for entry</strong></p>
+              <small class="text-muted">Booked by: <span id="tktCustomerName">Soham Sonawan</span></small><br />
+              <small class="text-muted">Total Paid: ₹<span id="tktPaidAmount">360.00</span></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticket-tear-line">
+          <div class="notch notch-left"></div>
+          <div class="tear-dots"></div>
+          <div class="notch notch-right"></div>
+        </div>
+
+        <div class="ticket-footer">
+          <div class="barcode-graphic">
+            ||| | |||| | || ||||| ||| | ||| |||| | ||| || |||
+          </div>
+          <small>Enjoy your movie at Filmee Cinemas!</small>
+        </div>
+      </div>
+
+      <div class="ticket-actions">
+        <button class="btn btn-primary" onclick="window.print()">
+          <i class="fa-solid fa-print"></i> Print / Save PDF
+        </button>
+        <button class="btn btn-secondary" onclick="app.navigateTo('my-bookings'); app.closeModal('ticketModal');">
+          <i class="fa-solid fa-list-check"></i> View in My Tickets
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN: ADD / EDIT MOVIE MODAL -->
+  <div class="modal-backdrop" id="movieModal">
+    <div class="modal-box modal-admin-form">
+      <button class="modal-close" onclick="app.closeModal('movieModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="movieModalTitle"><i class="fa-solid fa-plus-circle text-accent"></i> Add New Movie</h3>
+      
+      <form id="formMovie" onsubmit="app.handleSaveMovie(event)">
+        <input type="hidden" id="adminMovieId" />
+        
+        <div class="form-group">
+          <label>Movie Title</label>
+          <input type="text" id="mTitle" required placeholder="e.g. Avatar: The Way of Water" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Genre</label>
+            <input type="text" id="mGenre" required placeholder="e.g. Action / Sci-Fi" />
+          </div>
+          <div class="form-group">
+            <label>Language</label>
+            <input type="text" id="mLanguage" required placeholder="e.g. English, Hindi" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Duration (minutes)</label>
+            <input type="number" id="mDuration" required min="30" max="300" placeholder="150" />
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select id="mStatus">
+              <option value="NOW_SHOWING">Now Showing</option>
+              <option value="UPCOMING">Coming Soon</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Poster Image URL</label>
+          <input type="url" id="mPoster" required placeholder="https://images.unsplash.com/..." />
+        </div>
+
+        <div class="form-group">
+          <label>Description / Synopsis</label>
+          <textarea id="mDescription" rows="3" placeholder="Brief synopsis of the film..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-floppy-disk"></i> Save Movie
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN: ADD SHOW MODAL -->
+  <div class="modal-backdrop" id="showModal">
+    <div class="modal-box modal-admin-form">
+      <button class="modal-close" onclick="app.closeModal('showModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-calendar-plus text-accent"></i> Schedule New Show</h3>
+
+      <form id="formShow" onsubmit="app.handleSaveShow(event)">
+        <div class="form-group">
+          <label>Select Movie</label>
+          <select id="showMovieSelect" required></select>
+        </div>
+
+        <div class="form-group">
+          <label>Select Auditorium / Screen</label>
+          <select id="showScreenSelect" required></select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Show Date</label>
+            <input type="date" id="showDateInput" required />
+          </div>
+          <div class="form-group">
+            <label>Start Time</label>
+            <input type="time" id="showTimeInput" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Standard Seat Price (₹)</label>
+            <input type="number" id="showStdPrice" required min="50" max="2000" value="180" />
+          </div>
+          <div class="form-group">
+            <label>Premium Recliner Price (₹)</label>
+            <input type="number" id="showPremPrice" required min="50" max="3000" value="300" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-check"></i> Add Show to Schedule
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION TOAST -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/api-client.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
