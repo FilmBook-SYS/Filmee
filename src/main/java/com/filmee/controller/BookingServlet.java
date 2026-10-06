@@ -7,14 +7,17 @@ import com.filmee.model.Show;
 import com.filmee.model.User;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+@WebServlet(name = "BookingServlet", urlPatterns = {"/booking", "/seat-selection", "/checkout", "/my-bookings", "/ticket"})
 public class BookingServlet extends HttpServlet {
-    private ShowDAO showDAO = new ShowDAO();
-    private BookingDAO bookingDAO = new BookingDAO();
+    private static final long serialVersionUID = 1L;
+    private final transient ShowDAO showDAO = new ShowDAO();
+    private final transient BookingDAO bookingDAO = new BookingDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

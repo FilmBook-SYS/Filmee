@@ -6,7 +6,12 @@
          version="4.0"
          metadata-complete="false">
 
-    <display-name>Filmee Backend API Services</display-name>
+    <display-name>Filmee - Movie Ticket Booking Platform</display-name>
+
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
     <!-- CORS Filter -->
     <filter>
@@ -18,7 +23,59 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!-- Servlets -->
+    <!-- Web UI Servlets -->
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.filmee.controller.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>com.filmee.controller.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MovieServlet</servlet-name>
+        <servlet-class>com.filmee.controller.MovieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MovieServlet</servlet-name>
+        <url-pattern>/movies</url-pattern>
+        <url-pattern>/movie-details</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookingServlet</servlet-name>
+        <servlet-class>com.filmee.controller.BookingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BookingServlet</servlet-name>
+        <url-pattern>/booking</url-pattern>
+        <url-pattern>/seat-selection</url-pattern>
+        <url-pattern>/checkout</url-pattern>
+        <url-pattern>/my-bookings</url-pattern>
+        <url-pattern>/ticket</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>com.filmee.controller.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+
+    <!-- REST API Servlets -->
     <servlet>
         <servlet-name>ApiAuthServlet</servlet-name>
         <servlet-class>com.filmee.controller.ApiAuthServlet</servlet-class>

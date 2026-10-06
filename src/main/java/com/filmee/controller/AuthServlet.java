@@ -4,11 +4,14 @@ import com.filmee.dao.UserDAO;
 import com.filmee.model.User;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
+@WebServlet(name = "AuthServlet", urlPatterns = {"/auth"})
 public class AuthServlet extends HttpServlet {
-    private UserDAO userDAO = new UserDAO();
+    private static final long serialVersionUID = 1L;
+    private final transient UserDAO userDAO = new UserDAO();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

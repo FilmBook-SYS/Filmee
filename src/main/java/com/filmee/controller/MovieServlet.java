@@ -6,13 +6,16 @@ import com.filmee.model.Movie;
 import com.filmee.model.Show;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
+@WebServlet(name = "MovieServlet", urlPatterns = {"/movies", "/movie-details"})
 public class MovieServlet extends HttpServlet {
-    private MovieDAO movieDAO = new MovieDAO();
-    private ShowDAO showDAO = new ShowDAO();
+    private static final long serialVersionUID = 1L;
+    private final transient MovieDAO movieDAO = new MovieDAO();
+    private final transient ShowDAO showDAO = new ShowDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

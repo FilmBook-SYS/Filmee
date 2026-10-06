@@ -10,6 +10,10 @@ import java.util.UUID;
 
 public class BookingDAO {
 
+    public Booking createBooking(int userId, int showId, List<String> selectedSeats, double totalAmount) {
+        return createBooking(userId, showId, selectedSeats, totalAmount, "CARD");
+    }
+
     public Booking createBooking(int userId, int showId, List<String> selectedSeats, double totalAmount, String paymentMethod) {
         if (selectedSeats == null || selectedSeats.isEmpty()) {
             return null;

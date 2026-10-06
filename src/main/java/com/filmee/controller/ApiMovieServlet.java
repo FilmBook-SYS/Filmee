@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet(name = "ApiMovieServlet", urlPatterns = {"/api/movies/*"})
 public class ApiMovieServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private final MovieService movieService = new MovieService();
+    private final transient MovieService movieService = new MovieService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

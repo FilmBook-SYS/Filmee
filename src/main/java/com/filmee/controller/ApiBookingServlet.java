@@ -18,7 +18,7 @@ import java.util.Map;
 @WebServlet(name = "ApiBookingServlet", urlPatterns = {"/api/bookings/*"})
 public class ApiBookingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private final BookingService bookingService = new BookingService();
+    private final transient BookingService bookingService = new BookingService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

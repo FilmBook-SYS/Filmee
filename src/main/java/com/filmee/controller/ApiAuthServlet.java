@@ -15,7 +15,7 @@ import java.util.Map;
 @WebServlet(name = "ApiAuthServlet", urlPatterns = {"/api/auth/*"})
 public class ApiAuthServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private final AuthService authService = new AuthService();
+    private final transient AuthService authService = new AuthService();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

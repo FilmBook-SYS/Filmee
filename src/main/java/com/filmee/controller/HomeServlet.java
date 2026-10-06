@@ -9,8 +9,10 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
+@WebServlet(name = "HomeServlet", urlPatterns = {"/home", "/index"})
 public class HomeServlet extends HttpServlet {
-    private MovieDAO movieDAO = new MovieDAO();
+    private static final long serialVersionUID = 1L;
+    private final transient MovieDAO movieDAO = new MovieDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

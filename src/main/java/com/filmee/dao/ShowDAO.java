@@ -179,4 +179,31 @@ public class ShowDAO {
         show.setScreenName(rs.getString("screen_name"));
         return show;
     }
+
+    public List<java.util.Map<String, Object>> getAllScreens() {
+        List<java.util.Map<String, Object>> screens = new ArrayList<>();
+        String sql = "SELECT sc.screen_id, sc.theater_id, sc.screen_number, sc.total_rows, sc.seats_per_row, sc.total_capacity, " +
+                     "t.name AS theater_name " +
+                     "FROM screens sc " +
+                     "JOIN theaters t ON sc.theater_id = t.theater_id " +
+                     "ORDER BY t.name, sc.screen_number";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                java.util.Map<String, Object> screen = new java.util.HashMap<>();
+                screen.put("screenId", rs.getInt("screen_id"));
+                screen.put("theaterId", rs.getInt("theater_id"));
+                screen.put("screenNumber", rs.getString("screen_number"));
+                screen.put("totalRows", rs.getInt("total_rows"));
+                screen.put("seatsPerRow", rs.getInt("seats_per_row"));
+                screen.put("totalCapacity", rs.getInt("total_capacity"));
+                screen.put("theaterName", rs.getString("theater_name"));
+                screens.add(screen);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return screens;
+    }
 }
