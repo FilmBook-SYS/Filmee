@@ -2,3 +2,9 @@ target/
 .git/
 .vscode/
 *.log
+Dockerfile
+docker-compose.yml
+pom.xml
+src/
+database/
+render.yaml
