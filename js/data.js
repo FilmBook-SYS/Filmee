@@ -100,7 +100,7 @@ const INITIAL_DATA = {
       releaseDate: "2021-12-24",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/23oJaeBh0FDk2mQ2P240PU9Xxfh.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/29XD7Y19B2L2v3q1E3L1Jb3C4k5.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/cYyUinLXRbQwE4PAt2mQLTGBqti.jpg",
       description: "Yuta Okkotsu is haunted by the cursed spirit of his childhood friend Rika. Satoru Gojo enrolls him into Tokyo Jujutsu High to help him control Rika's overwhelming cursed energy and thwart Suguru Geto's night parade of a hundred demons.",
       director: "Sunghoo Park (MAPPA)",
       cast: "Megumi Ogata, Kana Hanazawa, Mikako Komatsu, Koki Uchiyama, Tomokazu Seki, Yuichi Nakamura"
@@ -148,7 +148,7 @@ const INITIAL_DATA = {
       releaseDate: "2023-07-14",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/f4oZTcfGrVTXKTWg157AwikXqmP.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/mDeAqqUCGzE9i01qW0cQY7oR4uE.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/9PqD3wSIjntyJDBzMNuxuKHwpUD.jpg",
       description: "Oscar-winning masterpiece by Hayao Miyazaki. Following the loss of his mother during the Pacific War, young Mahito ventures into a magical tower shared by the living and the dead, guided by a talking grey heron.",
       director: "Hayao Miyazaki (Studio Ghibli)",
       cast: "Soma Santoki, Masaki Suda, Aimyon, Yoshino Kimura, Takuya Kimura, Ko Shibasaki"
@@ -180,7 +180,7 @@ const INITIAL_DATA = {
       releaseDate: "2019-07-19",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/qgrk7r1fV4IjuoeiGS5HOhXNdLJ.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/4HWAQu28LDv3Q49G6Z9a8c1k2.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/AeDS2MKGFy6QcjgWbJBde0Ga6Hd.jpg",
       description: "A runaway high school boy befriended in Tokyo meets an orphan girl who possesses the extraordinary ability to stop the relentless rain and clear the sky through prayer.",
       director: "Makoto Shinkai",
       cast: "Kotaro Daigo, Nana Mori, Shun Oguri, Tsubasa Honda, Chieko Baisho"
@@ -196,7 +196,7 @@ const INITIAL_DATA = {
       releaseDate: "2022-08-06",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/8ibfhe4P7rhmn3lrPhOZzIJHA2B.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/9pD2W8vL1k6C3m0N7p4b8d7a6.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/mQOUyqDybTqxl73hO5LujCZsM1o.jpg",
       description: "Uta, the world's most beloved pop singer and daughter of Red-Haired Shanks, reveals her otherworldly singing voice at an island concert attended by the Straw Hat Pirates, Marines, and world rulers.",
       director: "Goro Taniguchi (Toei Animation)",
       cast: "Mayumi Tanaka, Kaori Nazuka, Ado, Shuichi Ikeda, Kazuya Nakai, Akemi Okamura"
@@ -212,7 +212,7 @@ const INITIAL_DATA = {
       releaseDate: "2016-09-17",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/tuFaWiqX0TXoWu7DGNcmX3UW7sT.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/5lAMQMW2XCsVaqXPTnlqi562wGx.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/5lAMQMWpXMsirvtLLvW7cJgEPkU.jpg",
       description: "Shoya Ishida seeks redemption and forgiveness from Shoko Nishimiya, a deaf classmate he bullied years earlier in elementary school, embarking on an emotional journey of healing.",
       director: "Naoko Yamada (Kyoto Animation)",
       cast: "Miyu Irino, Saori Hayami, Aoi Yuki, Kensho Ono, Yuki Kaneko"
@@ -228,7 +228,7 @@ const INITIAL_DATA = {
       releaseDate: "2022-12-03",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/yq4tSiYvfGw150Ntq8NbsFZ12En.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/bL3G9vV8b4f0Z7p4c8d5a1k2.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/yq4tSiYvfGw150Ntq8NbsFZ12En.jpg",
       description: "Point guard Ryota Miyagi and the Shohoku High basketball team clash with reigning champions Sannoh Kogyo in the climactic Inter-High National Tournament.",
       director: "Takehiko Inoue (Toei Animation)",
       cast: "Shugo Nakamura, Jun Kasama, Shinichiro Kamio, Subaru Kimura, Kenta Miyake"
@@ -260,7 +260,7 @@ const INITIAL_DATA = {
       releaseDate: "1997-07-12",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/cMYCDADoLKLbB83g4WnJegaZimC.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/5b52Z0m2c0k1p9d5a7b6c3m1N2.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/cMYCDADoLKLbB83g4WnJegaZimC.jpg",
       description: "Prince Ashitaka journeying through medieval Japan finds himself caught in an epic war between the forest gods and Lady Eboshi's industrial Iron Town.",
       director: "Hayao Miyazaki (Studio Ghibli)",
       cast: "Yoji Matsuda, Yuriko Ishida, Yuko Tanaka, Kaoru Kobayashi, Masahiko Nishimura"
@@ -278,7 +278,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-08-15",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/nfnhwfUEFuSOxxf4jDdBlY6Lccw.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/nfnhwfUEFuSOxxf4jDdBlY6Lccw.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/3IfVRvuvYXWoVfDzNjSMvh6MNMJ.jpg",
       description: "The town of Chanderi is haunted once again, this time by a terrifying headless entity named Sarkata who is abducting progressive women. Vicky, Bittu, Janna, and Rudra team up with their mysterious protector to save the town.",
       director: "Amar Kaushik",
       cast: "Rajkummar Rao, Shraddha Kapoor, Pankaj Tripathi, Abhishek Banerjee, Aparshakti Khurana"
@@ -294,7 +294,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-06-27",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/sQJMFUjFfVdImpvlBJKqVHmNAEl.jpg",
       description: "Set in a post-apocalyptic world in the year 2898 AD, Ashwatthama awaits the arrival of the tenth avatar of Lord Vishnu to protect the unborn savior from Supreme Yaskin's Complex.",
       director: "Nag Ashwin",
       cast: "Prabhas, Amitabh Bachchan, Kamal Haasan, Deepika Padukone, Disha Patani"
@@ -310,7 +310,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-11-01",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/3AfHD1HoaQpQwKH8kxRdBKVmzeU.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/3AfHD1HoaQpQwKH8kxRdBKVmzeU.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/cFXMVXFpQlUJsxjNMhFJCPqLLi7.jpg",
       description: "Rooh Baba returns to face the dual wrath of Manjulika in the historic palace of Raktaghat, unlocking ancestral secrets with laughter and supernatural chills.",
       director: "Anees Bazmee",
       cast: "Kartik Aaryan, Vidya Balan, Madhuri Dixit, Triptii Dimri, Rajpal Yadav"
@@ -326,7 +326,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-11-01",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/2JbNkHg8m7LaBy61LyrnnlenaxY.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/2JbNkHg8m7LaBy61LyrnnlenaxY.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/rih4MtqGe5RDpaSiXhYoqLvAqFb.jpg",
       description: "DCP Bajirao Singham leads the high-octane Cop Universe squad across borders to rescue his wife Avni from international terror mastermind Danger Lanka.",
       director: "Rohit Shetty",
       cast: "Ajay Devgn, Kareena Kapoor Khan, Ranveer Singh, Akshay Kumar, Deepika Padukone, Tiger Shroff, Arjun Kapoor"
@@ -342,7 +342,7 @@ const INITIAL_DATA = {
       releaseDate: "2023-09-07",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/jFt1gS4BGHlK8xt76Y81Alp4dbt.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/jFt1gS4BGHlK8xt76Y81Alp4dbt.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0xO.jpg",
       description: "A high-octane action thriller outlining the emotional journey of a prison warden and former commando who sets out to rectify the wrongs in society while confronting a dangerous arms dealer.",
       director: "Atlee",
       cast: "Shah Rukh Khan, Nayanthara, Vijay Sethupathi, Deepika Padukone, Priyamani, Sanya Malhotra"
@@ -358,7 +358,7 @@ const INITIAL_DATA = {
       releaseDate: "2024-01-25",
       status: "NOW_SHOWING",
       posterUrl: "https://image.tmdb.org/t/p/w780/utKzCSCz2HtXwcDGfWLj2IHhSob.jpg",
-      backdropUrl: "https://image.tmdb.org/t/p/w1280/utKzCSCz2HtXwcDGfWLj2IHhSob.jpg",
+      backdropUrl: "https://image.tmdb.org/t/p/w1280/lmpgFbJABRWUWAIfpYVXiXvJBrs.jpg",
       description: "Top IAF aviators assemble in the elite 'Air Dragons' unit to defend Indian airspace against terror threats with supersonic dogfights and unwavering courage.",
       director: "Siddharth Anand",
       cast: "Hrithik Roshan, Deepika Padukone, Anil Kapoor, Karan Singh Grover, Akshay Oberoi"
